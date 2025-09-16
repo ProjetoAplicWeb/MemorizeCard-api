@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  term: MyString
+  definition: MyString
+  last_difficulty: 1
+  last_view: 2025-09-03
+  deck: one
+
+two:
+  term: MyString
+  definition: MyString
+  last_difficulty: 1
+  last_view: 2025-09-03
+  deck: two
