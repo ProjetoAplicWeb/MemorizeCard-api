@@ -5,8 +5,8 @@ class DecksController < ApplicationController
   end
 
   def show
-    @deck = Deck.find params[:id]
-    render json: { data: @deck }
+    @deck = Deck.includes(:cards).find params[:id]
+    render json: { data: @deck.as_json(include: :cards) }
   end
 
   def create

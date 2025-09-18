@@ -12,8 +12,7 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    @deck = Deck.find params[:deck_id]
-    @card = @deck.cards.find params[:card_id]
+    @card = Card.find params[:id]
     @card.delete
 
     head :ok
@@ -24,6 +23,11 @@ class CardsController < ApplicationController
     @card.update last_difficulty: card_done_params[:difficulty], last_view: Date.today
 
     head :ok
+  end
+
+  def update
+    @card = Card.find params[:id]
+    @card.update card_params
   end
 
   private
