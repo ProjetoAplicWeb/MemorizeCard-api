@@ -44,6 +44,14 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "dotenv-rails"
 end
 
 gem "rack-cors", "~> 3.0"
+
+gem "google-id-token", "~> 1.4"
+
+gem "bcrypt", "~> 3.1"
+
+gem "active_model_serializers", "~> 0.10.15"

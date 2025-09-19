@@ -1,22 +1,23 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  namespace :api do
+    get "decks", to: "decks#index"
+    get "decks/:id", to: "decks#show"
+    post "decks", to: "decks#create"
+    patch "decks/:id", to: "decks#update"
+    delete "decks/:id", to: "decks#destroy"
 
-  get "decks", to: "decks#index"
-  get "decks/:id", to: "decks#show"
-  post "decks", to: "decks#create"
-  patch "decks/:id", to: "decks#update"
-  delete "decks/:id", to: "decks#destroy"
+    get "decks/:id/cards", to: "cards#index"
+    post "decks/:id/cards", to: "cards#create"
+    delete "cards/:id", to: "cards#destroy"
+    patch "cards/:id", to: "cards#update"
+    post "cards/:id/done", to: "cards#done"
 
-  get "decks/:id/cards", to: "cards#index"
-  post "decks/:id/cards", to: "cards#create"
-  delete "cards/:id", to: "cards#destroy"
-  patch "cards/:id", to: "cards#update"
-  post "cards/:id/done", to: "cards#done"
+    post "auth/google_oauth2/callback", to: "authentications#google_oauth2"
+
+    resources :users, only: [ :create ]
+
+    post "/login", to: "sessions#create"
+  end
 end
