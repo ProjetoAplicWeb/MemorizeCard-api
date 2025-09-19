@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get "decks/:id/cards", to: "cards#index"
   post "decks/:id/cards", to: "cards#create"
-  delete "decks/:deck_id/cards/:card_id", to: "cards#destroy"
+  delete "cards/:id", to: "cards#destroy"
+  patch "cards/:id", to: "cards#update"
   post "cards/:id/done", to: "cards#done"
 end
