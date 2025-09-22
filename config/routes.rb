@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     patch "decks/:id", to: "decks#update"
     delete "decks/:id", to: "decks#destroy"
 
-    get "decks/:id/cards", to: "cards#index"
-    post "decks/:id/cards", to: "cards#create"
+    get "decks/:deck_id/cards", to: "cards#index"
+    post "decks/:deck_id/cards", to: "cards#create"
     delete "cards/:id", to: "cards#destroy"
     patch "cards/:id", to: "cards#update"
     post "cards/:id/done", to: "cards#done"
