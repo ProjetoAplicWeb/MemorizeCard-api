@@ -72,6 +72,7 @@ bundle install
 # Rodar o projeto Ruby
 bundle exec ruby main.rb
 
+```
 --- 
 
 ## Uso
