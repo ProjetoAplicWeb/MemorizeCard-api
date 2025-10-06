@@ -114,7 +114,8 @@ http://localhost:8080
 
 ## 🧱 Estrutura do projeto
 
-```app/
+```
+app/
  ├── controllers/   # controllers (API controllers)
  ├── models/        # ActiveRecord models (Deck, Card, User, etc.)
  ├── serializers/   # serializers (ActiveModelSerializers ou fast_jsonapi)
