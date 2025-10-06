@@ -135,8 +135,7 @@ config.ru           # rackup
 
 ## 🤝 Contribuição
 
-1. Ruby Faça um fork do repositório
+1. Faça um fork do repositório
 2. Crie uma branch: git checkout -b feat/nome-da-feature
-3. Adicione testes para a feature (se aplicável)
-4. Commit: git commit -m "feat: adiciona geração de cards via IA"
-5. Abra um Pull Request descrevendo as mudanças
+3. Commit: git commit -m "feat: adiciona geração de cards via IA"
+4. Abra um Pull Request descrevendo as mudanças
