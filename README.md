@@ -9,9 +9,9 @@ Nosso objetivo é oferecer uma alternativa **legal e acessível** à pirataria, 
 - [Sobre](#-sobre)
 - [Funcionalidades](#-funcionalidades)
 - [Tecnologias](#-tecnologias)
-- [Instalação](#-instalação)
+- [Instalação](#️-instalação)
 - [Uso](#-uso)
-- [API](#-api)
+- [API](#-api--endpoints)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
 - [Contribuição](#-contribuição)
 
@@ -53,7 +53,6 @@ O foco é ser leve, intuitivo e adaptável ao fluxo de estudos do usuário — i
 ## 🛠️ Instalação
 
 ### Pré-requisitos
-- [Docker](https://www.docker.com/) para rodar o banco de dados  
 - JDK 17+  
 - Maven  
 - Node.js
@@ -75,17 +74,17 @@ bundle exec ruby main.rb
 ```
 --- 
 
-## Uso
+## 💡 Uso
 
-# Rodando localmente:
+### Rodando localmente:
 bundle exec ruby main.rb
 
-# Acesse em: 
+### Acesse em: 
 http://localhost:8080    
 
 --- 
 
-## API — Endpoints
+## 💻 API — Endpoints
 
 ### Health
 **GET** `/up` — health check da aplicação
@@ -101,21 +100,21 @@ http://localhost:8080
 **GET** `/api/decks` — Listar decks do usuário  
 **GET** `/api/decks/:id` — Detalhes do deck (inclui cards)  
 **POST** `/api/decks` — Criar deck  
-**PATCH** `/api/decks/:id` — Atualizar deck 
-**DELETE** `/api/decks/:id` — Remover deck
+**PATCH** `/api/decks/:id` — Atualizar deck  
+**DELETE** `/api/decks/:id` — Remover deck  
 
 ### Cards (Api::CardsController)
 **GET** `/api/decks/:deck_id/cards` — Listar cards de um deck  
-**POST** `/api/decks/:deck_id/cards` — Criar card no deck 
-**PATCH** `/api/cards/:id` — Atualizar card 
-**DELETE** `/api/cards/:id` — Remover card
+**POST** `/api/decks/:deck_id/cards` — Criar card no deck  
+**PATCH** `/api/cards/:id` — Atualizar card  
+**DELETE** `/api/cards/:id` — Remover card  
 **POST** `/api/cards/:id/done` — Marcar card como finalizado
 
 --- 
 
-## Estrutura do projeto
+## 🧱 Estrutura do projeto
 
-app/
+```app/
  ├── controllers/   # controllers (API controllers)
  ├── models/        # ActiveRecord models (Deck, Card, User, etc.)
  ├── serializers/   # serializers (ActiveModelSerializers ou fast_jsonapi)
@@ -131,9 +130,9 @@ Gemfile             # gems do projeto
 Dockerfile          # containerização
 config.ru           # rackup
 .rubocop.yml        # regras RuboCop
+```
 
-
-## Contribuição
+## 🤝 Contribuição
 
 1. Ruby Faça um fork do repositório
 2. Crie uma branch: git checkout -b feat/nome-da-feature
