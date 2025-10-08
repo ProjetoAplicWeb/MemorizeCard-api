@@ -21,5 +21,6 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
 
     post "/password/forgot", to: "password#forgot"
+    post "/password/validate-token", to: "password#validate_token"
   end
 end

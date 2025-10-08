@@ -25,9 +25,49 @@ class Api::PasswordController < ApplicationController
     end
   end
 
+  def validate_token
+    email, code = validate_params
+
+    if validate(email, code)
+      head :ok
+    else
+      render json: { message: "invalid token" }, status: :bad_request
+    end
+  end
+
   private
+
+  def validate(email, code)
+    @user = User.find_by(email: email)
+
+    unless @user
+      return false
+    end
+
+    @reset_record = PasswordReset.find_by(user: @user)
+
+    unless @reset_record
+      return false
+    end
+
+    if @reset_record.max_attempts_reached?
+      @reset_record.destroy
+      return false
+    end
+
+    if @reset_record.expired?
+      @reset_record.destroy
+      return false
+    end
+
+    BCrypt::Password.create(code) == code
+  end
 
   def forgot_params
     params.require(:email)
+  end
+
+  def validate_params
+    params.require([ :email, :code ])
   end
 end
