@@ -1,0 +1,33 @@
+services:
+  api:
+    container_name: memorize-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - .:/rails
+      - rails_storage:/app/storage
+    networks:
+      - memorize
+
+  mailcatcher:
+    container_name: mailcatcher
+    image: sj26/mailcatcher
+    ports:
+      - "1025:1025"
+      - "1080:1080"
+    env_file:
+      - .env
+    networks:
+      - memorize
+
+networks:
+  memorize:
+    driver: bridge
+
+volumes:
+  rails_storage:

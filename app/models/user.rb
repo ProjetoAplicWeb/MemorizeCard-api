@@ -4,4 +4,5 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_many :decks, dependent: :destroy
+  has_many :password_resets, dependent: :destroy
 end
