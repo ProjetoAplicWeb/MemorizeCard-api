@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
     post "/password/forgot", to: "password#forgot"
     post "/password/validate-token", to: "password#validate_token"
+    post "/password/reset", to: "password#reset_password"
   end
 end

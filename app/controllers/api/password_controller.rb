@@ -35,6 +35,17 @@ class Api::PasswordController < ApplicationController
     end
   end
 
+  def reset_password
+    email, code, password = reset_params
+
+    if validate(email, code)
+      @user.update(password: password)
+      head :ok
+    else
+      render json: { message: "invalid token" }, status: :bad_request
+    end
+  end
+
   private
 
   def validate(email, code)
@@ -69,5 +80,9 @@ class Api::PasswordController < ApplicationController
 
   def validate_params
     params.require([ :email, :code ])
+  end
+
+  def reset_params
+    params.require([ :email, :code, :password ])
   end
 end
