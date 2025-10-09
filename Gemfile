@@ -55,5 +55,3 @@ gem "google-id-token", "~> 1.4"
 gem "bcrypt", "~> 3.1"
 
 gem "active_model_serializers", "~> 0.10.15"
-
-gem 'google-generative-ai'
