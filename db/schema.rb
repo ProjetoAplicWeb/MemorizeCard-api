@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_19_033704) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_07_165413) do
   create_table "cards", force: :cascade do |t|
     t.string "term"
     t.string "definition"
@@ -30,6 +30,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_033704) do
     t.index ["user_id"], name: "index_decks_on_user_id"
   end
 
+  create_table "password_resets", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "token_hash", null: false
+    t.datetime "expires_at", null: false
+    t.integer "attempts", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_password_resets_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "full_name"
     t.string "email"
@@ -41,4 +51,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_033704) do
 
   add_foreign_key "cards", "decks"
   add_foreign_key "decks", "users"
+  add_foreign_key "password_resets", "users"
 end

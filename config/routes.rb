@@ -19,5 +19,9 @@ Rails.application.routes.draw do
     resources :users, only: [ :create ]
 
     post "/login", to: "sessions#create"
+
+    post "/password/forgot", to: "password#forgot"
+    post "/password/validate-token", to: "password#validate_token"
+    post "/password/reset", to: "password#reset_password"
   end
 end
