@@ -1,7 +1,8 @@
 # 🃏 MemorizeCard
 
-O **MemorizeCard** é um aplicativo de leitura de mangás por assinatura, com foco em títulos **licenciados** e de qualidade.  
-Nosso objetivo é oferecer uma alternativa **legal e acessível** à pirataria, trazendo praticidade e valorizando o mercado editorial no Brasil.
+O **MemorizeCard** é uma plataforma de estudo focada em tornar o aprendizado mais eficiente e dinâmico. Com a possibilidade de **criar decks e flashcards personalizados**, os usuários podem revisar conteúdos de maneira ativa, além de aproveitar recursos como geração automática de cards por IA e organização inteligente de materiais de estudo.
+
+Com uma interface intuitiva e adaptável, o FlashCards busca oferecer uma **experiência de aprendizado leve, flexível e focada na evolução do estudante.**
 
 ---
 
@@ -18,7 +19,7 @@ Nosso objetivo é oferecer uma alternativa **legal e acessível** à pirataria, 
 ---
 
 ## 📌 Sobre
-O **FlashCards** foi pensado para ajudar estudantes a aprenderem de forma ativa e organizada, permitindo:
+O **MemorizeCard** foi pensado para ajudar estudantes a aprenderem de forma ativa e organizada, permitindo:
 - Criar **decks** por assunto (ex.: Física, História, Biologia).
 - Adicionar **flashcards** com frente (pergunta/termo) e verso (resposta/explicação, imagens, links e anotações).
 - Manter uma **biblioteca pessoal** de decks e marcar favoritos.
@@ -42,7 +43,7 @@ O foco é ser leve, intuitivo e adaptável ao fluxo de estudos do usuário — i
 
 ## 🧰 Tecnologias
 - **Back end:** Ruby 
-- **Banco de dados:** MongoDB  
+- **Banco de dados:** PostgreSQL  
 - **Front end:** React e TypeScript
 - **Autenticação:** JWT 
 - **IA:** integração com serviço externo (Gemini)
@@ -53,9 +54,10 @@ O foco é ser leve, intuitivo e adaptável ao fluxo de estudos do usuário — i
 ## 🛠️ Instalação
 
 ### Pré-requisitos
-- JDK 17+  
-- Maven  
-- Node.js
+- Ruby 3.x+
+- Rails 6.x+
+- Node.js (necessário para assets)
+- PostgreSQL 
 
 ### Passos
 ```bash
