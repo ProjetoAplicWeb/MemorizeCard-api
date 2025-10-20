@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_07_165413) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_13_151634) do
+  create_table "card_reviews", force: :cascade do |t|
+    t.integer "difficulty"
+    t.datetime "date"
+    t.integer "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_card_reviews_on_card_id"
+  end
+
   create_table "cards", force: :cascade do |t|
     t.string "term"
     t.string "definition"
@@ -49,6 +58,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_07_165413) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "card_reviews", "cards"
   add_foreign_key "cards", "decks"
   add_foreign_key "decks", "users"
   add_foreign_key "password_resets", "users"
