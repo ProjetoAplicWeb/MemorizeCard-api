@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     patch "cards/:id", to: "cards#update"
     post "cards/:id/done", to: "cards#done"
 
-    post "generate_cards_ia", to: "generate_cards_ia#create"
+    post "generate_cards", to: "generate_cards#create"
     
     post "auth/google_oauth2/callback", to: "authentications#google_oauth2"
 
