@@ -1,6 +1,6 @@
 class Api::DecksController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_deck, only: [ :show, :update, :destroy ]
+ before_action :authenticate_user!
+ before_action :set_deck, only: [ :show, :update, :destroy ]
 
   def index
     @decks = current_user.decks
