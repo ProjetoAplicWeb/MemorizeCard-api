@@ -2,11 +2,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   namespace :api do
-    get "decks", to: "decks#index"
-    get "decks/:id", to: "decks#show"
-    post "decks", to: "decks#create"
-    patch "decks/:id", to: "decks#update"
-    delete "decks/:id", to: "decks#destroy"
+    get "dashboard", to: "dashboard#index"
+
+    resources :decks
 
     get "decks/:deck_id/cards", to: "cards#index"
     post "decks/:deck_id/cards", to: "cards#create"
