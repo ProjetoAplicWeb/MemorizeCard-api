@@ -32,10 +32,15 @@ class Api::CardsController < ApplicationController
   end
 
   def done
-    if @card.update(last_difficulty: params[:difficulty], last_view: Date.today)
-      head :ok
-    else
-      render json: { errors: @card.errors.full_messages }, status: :unprocessable_entity
+    ActiveRecord::Base.transaction do
+      begin
+        @card_review = @card.card_reviews.create(difficulty: params[:difficulty], date: Date.today)
+        @card.update(last_difficulty: params[:difficulty], last_view: Date.today)
+        head :ok
+      end
+    rescue StandardError => e
+      raise ActiveRecord::Rollback
+      render json: { errors: [ e.message ] }, status: :unprocessable_entity
     end
   end
 
